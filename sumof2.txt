@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+android:layout_height="664dp"
+android:orientation="vertical"
+tools:layout_editor_absoluteX="8dp"
+tools:layout_editor_absoluteY="8dp">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="enter 1 st num" />
+
+    <EditText
+        android:id="@+id/t1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="enter 2nd num" />
+
+    <EditText
+        android:id="@+id/t2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+        <Button
+            android:onClick="sumof"
+            android:id="@+id/sumof"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="onclick" />
+
+    <EditText
+        android:id="@+id/t3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+</LinearLayout>
+
+
+
+
+
+
+
+package com.example.s2d;
+
+import android.graphics.Color;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+    EditText e1,e2,e3;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+    public void sumof(View v)
+    {
+
+        e1=(EditText)findViewById(R.id.t1);
+        e2=(EditText)findViewById(R.id.t2);
+        e3=(EditText) findViewById(R.id.t3);
+        String s1=e1.getText().toString();
+        int x=Integer.parseInt(s1);
+        String s2=e2.getText().toString();
+        int y=Integer.parseInt(s2);
+        int s=x+y;
+        String sum=String.valueOf(s);
+        if(s>10)
+        {
+            e3.setBackgroundColor(Color.GREEN);
+            e3.setText(sum);
+        }
+        else
+        {
+            e3.setBackgroundColor(Color.RED);
+            e3.setText(sum);
+        }
+
+    }
+}
+
+
